@@ -21,6 +21,12 @@ describe("Test POST /launch", () => {
     const requestDate = new Date(response.body.launchDate);
     const responseDate = new Date(response.body.launchDate);
     expect(requestDate).toEqual(responseDate);
+    expect(response.body).toMatchObject({
+      mission: "USS Enterprise",
+      rocket: "NCC 1701-D ",
+      destination: "Kepler-186 f",
+      launchDate: "2022-10-01T00:00:00.000Z",
+    });
   });
 
   test("It should catch missing required properties", async () => {
