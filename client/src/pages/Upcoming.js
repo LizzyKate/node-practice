@@ -12,7 +12,6 @@ const styles = () => ({
 
 const Upcoming = (props) => {
   const { entered, launches, classes, abortLaunch } = props;
-  console.log(launches);
 
   const tableBody = useMemo(() => {
     return launches
@@ -34,7 +33,7 @@ const Upcoming = (props) => {
             <td>{new Date(launch.launchDate).toDateString()}</td>
             <td>{launch.mission}</td>
             <td>{launch.rocket}</td>
-            <td>{launch.destination}</td>
+            <td>{launch.target}</td>
           </tr>
         );
       });
