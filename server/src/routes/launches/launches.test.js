@@ -14,7 +14,7 @@ describe("Test POST /launch", () => {
       .send({
         mission: "USS Enterprise",
         rocket: "NCC 1701-D ",
-        destination: "Kepler-186 f",
+        target: "Kepler-186 f",
         launchDate: "2022-10-01",
       })
       .expect(201);
@@ -24,7 +24,7 @@ describe("Test POST /launch", () => {
     expect(response.body).toMatchObject({
       mission: "USS Enterprise",
       rocket: "NCC 1701-D ",
-      destination: "Kepler-186 f",
+      target: "Kepler-186 f",
       launchDate: "2022-10-01T00:00:00.000Z",
     });
   });
@@ -34,7 +34,7 @@ describe("Test POST /launch", () => {
       .post("/launches")
       .send({
         mission: "USS Enterprise",
-        destination: "Kepler-186 f",
+        target: "Kepler-186 f",
         launchDate: "2022-10-01",
       })
       .expect(400);
@@ -49,7 +49,7 @@ describe("Test POST /launch", () => {
       .send({
         mission: "USS Enterprise",
         rocket: "NCC 1701-D ",
-        destination: "Kepler-186 f",
+        target: "Kepler-186 f",
         launchDate: "invalid date",
       })
       .expect(400);

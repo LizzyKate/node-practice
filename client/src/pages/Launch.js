@@ -4,7 +4,6 @@ import Clickable from "../components/Clickable";
 
 const Launch = (props) => {
   const today = new Date().toISOString().split("T")[0];
-  console.log(props);
 
   return (
     <Appear id="launch" animate show={props.entered}>
