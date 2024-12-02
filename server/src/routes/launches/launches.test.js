@@ -1,6 +1,11 @@
 const request = require("supertest");
 const app = require("../../app");
+const { mongoConnect } = require("../../services/mongo");
 describe("Test GET /launches", () => {
+  beforeAll(async () => {
+    await mongoConnect();
+  });
+
   test("It should respond with 200 success", async () => {
     const response = await request(app).get("/launches").expect(200);
     expect(response.body).toBeInstanceOf(Array);
